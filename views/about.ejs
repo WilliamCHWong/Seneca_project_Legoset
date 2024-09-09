@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+    <div class="navbar bg-base-100">
+        <div class="container mx-auto">
+            <!--Hero-->
+            <div class="hero min-h-screen bg-base-200 py-16"> <!-- Adjust the padding here -->
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold">About</h1>
+                        <p class="py-6">all about me</p>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!--image -->
+        <div>
+            <img src="https://plus.unsplash.com/premium_photo-1678727283319-c9358ad98c73?q=80&w=2123&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bike Image" class="w-full h-auto">
+        </div>
+        <!--short blurb-->
+        <div class="text-lg">
+            <h2 class="font-bold">Important notice</h2>
+            <p>Cheuk Hei Wong</p>
+            <p>Go to school by bike</p>
+        </div>
+    </div>
+    
+</body>
+</html>

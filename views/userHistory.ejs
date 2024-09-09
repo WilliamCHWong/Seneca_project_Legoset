@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>User History</title>
+    <%- include('partials/navbar', {page:'/userHistory'}) %>
+</head>
+<body class="bg-gray-100">
+    
+    <div class="container mx-auto my-8">
+        <% if (session && session.user) { %>
+            <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
+                <h2 class="text-lg font-bold mb-2">Welcome <%= session.user.userName %></h2>
+                <p class="text-gray-600">Email: <%= session.user.email %></p>
+            </div>
+        <% } %>
+        
+        <h2 class="text-2xl font-bold mb-4">Login History</h2>
+        <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Login Date/Time</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client Information</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <% if (session && session.user && session.user.loginHistory) { %>
+                        <% session.user.loginHistory.forEach((entry) => { %>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"><%= new Date(entry.dateTime).toLocaleString() %></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><%= entry.userAgent %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="2" class="px-6 py-4 whitespace-nowrap">No login history available</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Hero Section -->
+    <section class="hero flex justify-center items-center h-screen">
+        <div class="container mx-auto text-center w-1/2">
+            <h1 class="text-4xl lg:text-6xl font-bold mb-4">Welcome!</h1>
+            <p class="text-lg lg:text-xl mb-6">Let's explore the Lego collection.</p>
+            <a href="/lego/sets" class="btn text-lg lg:text-xl">Explore Sets</a>
+        </div>
+    </section>
+
+    <!-- Grid System -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="https://cdn.rebrickable.com/media/sets/001-1.jpg" alt="Lego Set Image">
+            <h2>Gears</h2>
+            <p>Description to be done</p>
+            <a href="/lego/sets/0012-1" class="btn">View Set</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="https://cdn.rebrickable.com/media/sets/0003977811-1.jpg" alt="Lego Set Image">
+            <h2>Ninjago: Book of Adventures</h2>
+            <p>Description to be done</p>
+            <a href="/lego/sets/0011-3" class="btn">View Set</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="https://cdn.rebrickable.com/media/sets/0011-2.jpg" alt="Lego Set Image">
+            <h2>Town Mini-Figures</h2>
+            <p>Description to be done</p>
+            <a href="/lego/sets/0011-2" class="btn">View Set</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= set.name %> Edit</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: '' }) %>
+    
+    <!--Hero-->
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-4xl font-bold">Editing <%= set.set_num %></h1>
+                <form action="/lego/editSet" method="POST" class="mt-8">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Name</span>
+                            </label>
+                            <input type="text" name="name" class="input" value="<%= set.name %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Year</span>
+                            </label>
+                            <input type="number" name="year" class="input" value="<%= set.year %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Number of Parts</span>
+                            </label>
+                            <input type="number" name="num_parts" class="input" value="<%= set.num_parts %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Image URL</span>
+                            </label>
+                            <input type="url" name="img_url" class="input" value="<%= set.img_url %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Theme</span>
+                            </label>
+                            <select name="theme_id" class="select" required>
+                                <% themes.forEach(theme => { %>
+                                    <option value="<%= theme.id %>" <% if (theme.id === set.Theme.id) { %> selected <% } %>><%= theme.name %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Set Number</span>
+                            </label>
+                            <input type="text" name="set_num" class="input" value="<%= set.set_num %>" readonly>
+                        </div>                        
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-8">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

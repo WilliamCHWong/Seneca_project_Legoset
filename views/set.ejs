@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= set.name %> Details</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: '' }) %>
+        
+    <!--Hero-->
+    <% if(session.user){ %>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-4xl font-bold"><%= set.name %> Details</h1>
+                    <p class="text-lg mb-4">Below, you will find detailed information about the set: <%= set.name %></p>
+                    <img src="<%= set.img_url %>" alt="<%= set.name %>" class="mx-auto mb-4">
+                    <p class="text-lg">Name: <%= set.name %></p>
+                    <p class="text-lg">Theme: <%= set.Theme.name %></p>
+                    <p class="text-lg">Year: <%= set.year %></p>
+                    <p class="text-lg">Number of Parts: <%= set.num_parts %></p>
+                    <div id="quote" class="text-lg"></div>
+                    <a class="btn btn-success btn-sm" href="/lego/editSet/<%= set.set_num %>">Edit%></a>
+                    <form action="/lego/deleteSet/<%= set.set_num %>" method="POST" style="display: inline;">
+                        <input type="hidden" name="set_num" value="<%= set.set_num %>">
+                        <button type="submit" class="btn btn-sm" style="background-color: red; color: white;">Delete</button>
+                    </form>
+                    <a href="#" onclick="history.back(); return false;" class="btn btn-sm mt-4">Back</a>                                        
+                </div>
+            </div>
+        </div> 
+        <% } %>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("https://quotable.io/random")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote").innerHTML = `<p>"${data.content}" - ${data.author}</p>`;
+                })
+                .catch(error => console.error('Error fetching quote:', error));
+        });
+    </script>
+</body>
+</html>

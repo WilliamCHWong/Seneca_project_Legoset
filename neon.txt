@@ -1,0 +1,7 @@
+# Do not expose your Neon credentials to the browser
+
+PGHOST='ep-proud-voice-a5ep0jeq.us-east-2.aws.neon.tech'
+PGDATABASE='SenecaDB'
+PGUSER='SenecaDB_owner'
+PGPASSWORD='PfxgL8E6kaCt'
+ENDPOINT_ID='ep-proud-voice-a5ep0jeq'

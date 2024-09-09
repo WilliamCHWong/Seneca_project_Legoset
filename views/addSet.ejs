@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Set</title>
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: '/lego/addSet' }) %>
+    
+    <!--Hero-->
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">Add Set</h1>
+                <form action="/lego/addSet" method="POST" class="mt-8">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Name</span>
+                            </label>
+                            <input type="text" name="name" class="input" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Year</span>
+                            </label>
+                            <input type="number" name="year" class="input" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Number of Parts</span>
+                            </label>
+                            <input type="number" name="num_parts" class="input" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Image URL</span>
+                            </label>
+                            <input type="url" name="img_url" class="input" required>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Theme</span>
+                            </label>
+                            <select name="theme_id" class="select" required>
+                                <% themes.forEach(theme => { %>
+                                    <option value="<%= theme.id %>"><%= theme.name %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Set Number</span>
+                            </label>
+                            <input type="text" name="set_num" class="input" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-8">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

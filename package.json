@@ -1,0 +1,28 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "WEB assignment 2",
+  "main": "server.js",
+  "scripts": {
+    "tw:build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css",
+    "test": "npm install express",
+    "start": "node server.js"
+  },
+  "author": "Cheuk Hei Wong",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "bcryptjs": "^2.4.3",
+    "client-sessions": "^0.8.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.3.2",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.2"
+  },
+  "devDependencies": {
+    "daisyui": "^4.7.2",
+    "tailwindcss": "^3.4.1"
+  }
+}
