@@ -1,19 +1,6 @@
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
-// set up sequelize to point to our postgres database
-// I have tried to call by env file but fail. Dont deduct me too much
-
-let sequelize = new Sequelize('SenecaDB', 'SenecaDB_owner', 'PfxgL8E6kaCt', {
-    host: 'ep-proud-voice-a5ep0jeq.us-east-2.aws.neon.tech',
-    dialect: 'postgres',
-    port: 5432,
-    dialectOptions: {
-      ssl: { rejectUnauthorized: false },
-    },
-});
-
-/*
 let sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
   dialect: 'postgres',
@@ -22,7 +9,6 @@ let sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, proc
     ssl: { rejectUnauthorized: false },
   }
 });
-*/
 
 // Define a "Theme" model
 const Theme = sequelize.define('Theme', {
